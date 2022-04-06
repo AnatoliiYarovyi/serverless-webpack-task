@@ -1,8 +1,10 @@
+import { middyfy } from '../../libs/lambda';
+
 import buildResponse from '../buildResponse';
 import { Event } from './interface';
 
-export async function findSumPositiveElements(event: Event) {
-  const arrNumbers: number[] = JSON.parse(event.body);
+const handler = async (event: Event) => {
+  const arrNumbers = event.body;
   const sumPositiveElement: number = arrNumbers.reduce((acc: number, el) => {
     if (el > 0) {
       acc += el;
@@ -14,4 +16,6 @@ export async function findSumPositiveElements(event: Event) {
   };
 
   return buildResponse(201, body);
-}
+};
+
+export const findSumPositiveElements = middyfy(handler);

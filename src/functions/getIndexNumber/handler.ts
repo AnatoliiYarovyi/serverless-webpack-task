@@ -1,6 +1,8 @@
-import buildResponse from "../buildResponse";
+import { middyfy } from '../../libs/lambda';
 
-export async function getIndexNumber() {
+import buildResponse from '../buildResponse';
+
+const handler = async () => {
   const currentYear = new Date().getFullYear();
   const dateStart = new Date(`January 1, ${currentYear} 00:00:01`);
   const dateToday = new Date();
@@ -11,4 +13,6 @@ export async function getIndexNumber() {
   };
 
   return buildResponse(200, body);
-}
+};
+
+export const getIndexNumber = middyfy(handler);

@@ -1,3 +1,3 @@
 export interface Event {
-  body: string;
+  body: number[];
 }

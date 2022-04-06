@@ -51,35 +51,35 @@ provider:
 
 functions:
   findFirstPositiveElement:
-    handler: src/findFirstPositiveElement/index.findFirstPositiveElement
+    handler: src/functions/findFirstPositiveElement/handler.findFirstPositiveElement
     events:
       - httpApi:
           path: /first-positive-element
           method: post
 
   findSumPositiveElements:
-    handler: src/findSumPositiveElements/index.findSumPositiveElements
+    handler: src/functions/findSumPositiveElements/handler.findSumPositiveElements
     events:
       - httpApi:
           path: /sum-positive-elements
           method: post
 
   getSumAndProductNumber:
-    handler: src/getSumAndProductNumber/index.getSumAndProductNumber
+    handler: src/functions/getSumAndProductNumber/handler.getSumAndProductNumber
     events:
       - httpApi:
           path: /sum-product-number
           method: post
 
   getIndexNumber:
-    handler: src/getIndexNumber/index.getIndexNumber
+    handler: src/functions/getIndexNumber/handler.getIndexNumber
     events:
       - httpApi:
           path: /index-number-day
           method: get
 
   sortUserData:
-    handler: src/sortUserData/index.sortUserData
+    handler: src/functions/sortUserData/handler.sortUserData
     events:
       - httpApi:
           path: /sort-data

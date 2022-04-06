@@ -1,8 +1,10 @@
+import { middyfy } from '../../libs/lambda';
+
 import buildResponse from '../buildResponse';
 import { Event } from './interface';
 
-export async function getSumAndProductNumber(event: Event) {
-  const value: number = JSON.parse(event.body);
+const handler = async (event: Event) => {
+  const value: number = event.body;
 
   const arrNumber: number[] = [];
   for (let i = 1; i <= value; i++) {
@@ -23,4 +25,6 @@ export async function getSumAndProductNumber(event: Event) {
   };
 
   return buildResponse(201, body);
-}
+};
+
+export const getSumAndProductNumber = middyfy(handler);

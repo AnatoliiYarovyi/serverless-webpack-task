@@ -1,8 +1,10 @@
-import buildResponse from '../buildResponse';
-import { Arr, Event } from './interface';
+import { middyfy } from '../../libs/lambda';
 
-export async function sortUserData(event: Event) {
-  const arr: Arr[] = JSON.parse(event.body);
+import buildResponse from '../buildResponse';
+import { Event } from './interface';
+
+const handler = async (event: Event) => {
+  const arr = event.body;
   const byField = (field: string) => {
     return (a: any, b: any) => (a[field] > b[field] ? 1 : -1);
   };
@@ -17,4 +19,6 @@ export async function sortUserData(event: Event) {
   const body = { sortName, sortBirthDate };
 
   return buildResponse(201, body);
-}
+};
+
+export const sortUserData = middyfy(handler);
