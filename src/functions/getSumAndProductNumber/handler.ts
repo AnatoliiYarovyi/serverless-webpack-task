@@ -1,6 +1,4 @@
 import { middyfy } from '../../libs/lambda';
-
-import buildResponse from '../buildResponse';
 import { Event } from './interface';
 
 const handler = async (event: Event) => {
@@ -24,7 +22,10 @@ const handler = async (event: Event) => {
     getSumAndProductNumber,
   };
 
-  return buildResponse(201, body);
+  return {
+    statusCode: 201,
+    body,
+  };
 };
 
 export const getSumAndProductNumber = middyfy(handler);

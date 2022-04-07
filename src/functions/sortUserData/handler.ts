@@ -1,6 +1,4 @@
 import { middyfy } from '../../libs/lambda';
-
-import buildResponse from '../buildResponse';
 import { Event } from './interface';
 
 const handler = async (event: Event) => {
@@ -18,7 +16,10 @@ const handler = async (event: Event) => {
     .reverse();
   const body = { sortName, sortBirthDate };
 
-  return buildResponse(201, body);
+  return {
+    statusCode: 201,
+    body,
+  };
 };
 
 export const sortUserData = middyfy(handler);
