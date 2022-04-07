@@ -13,6 +13,9 @@ const middlewareEdytResponse = (): middy.MiddlewareObj<
     const { statusCode, body } = request.response;
 
     request.response = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
       statusCode,
       body: JSON.stringify(body),
     };
